@@ -2,7 +2,7 @@
 
 ## developers :two_men_holding_hands:
   ### frontend
-  :family_man_boy: 2019038056 강승호
+  :family_man_boy: [2019038056 강승호](https://github.com/seungho-hub)
 
   ### backend
 
