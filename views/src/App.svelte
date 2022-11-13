@@ -16,7 +16,7 @@
   main {
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(var(--font-color), var(--bg-color));
+    background: var(--bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
