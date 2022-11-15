@@ -46,10 +46,11 @@
   @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
   .signin-section {
     position: absolute;
-    top: 25%;
-    left: 35%;
-    width: 30%;
-    height: 40%;
+    width: 510px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     display: flex;
     flex-direction: column;
@@ -124,7 +125,6 @@
       margin: 5px;
 
       img {
-        margin-right: 1em;
         width: 1.5em;
         height: 1.5em;
       }
