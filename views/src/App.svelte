@@ -1,13 +1,14 @@
 <script>
   //   import mainSocket from "./socket/socket";
   import Router from "svelte-spa-router";
-  import Home from "./home/home.svelte";
+  import AuthGuard from "./home/AuthGuard.svelte";
+  import AuthGaurd from "./home/AuthGuard.svelte";
 </script>
 
 <main>
   <Router
     routes={{
-      "/*": Home,
+      "/*": AuthGuard,
     }}
   />
 </main>
