@@ -118,7 +118,6 @@
       align-items: center;
 
       background: var(--btn-color);
-      color: #fff;
       -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
       -moz-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
       box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
@@ -130,6 +129,7 @@
       }
       span {
         width: 100%;
+        color: var(--font-dark-color);
       }
       &.google {
         background-color: white;
