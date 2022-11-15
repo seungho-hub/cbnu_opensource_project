@@ -6,6 +6,7 @@
     font-size: 15px;
     font-family: 'ABeeZee', 'Jua', sans-serif;
     box-sizing: border-box;
+    color: var(--font-color);
 }
 
 :root {
@@ -15,6 +16,7 @@
     --btn-color: #583672;
     --font-color: #fff;
     --font-dark-color: var(--bg-color);
+    --border: 0.5px solid rgb(105, 105, 105);
     --link: #5fcfc6;
 }
 
