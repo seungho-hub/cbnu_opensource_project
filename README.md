@@ -9,7 +9,7 @@
 
   ### researcher
 
-## server rendering comand
+## server rendering command
 
 `...\server)` gradlew clean build
 
