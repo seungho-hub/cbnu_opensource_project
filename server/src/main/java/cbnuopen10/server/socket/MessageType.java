@@ -1,2 +1,5 @@
-package cbnuopen10.server.socket;public class MessageType {
+package cbnuopen10.server.socket;
+
+public enum MessageType {
+    SERVER, CLIENT
 }

@@ -1,4 +1,6 @@
-package cbnuopen10.server.config;
+package cbnuopen10.server.socket;
+
+import lombok.Data;
 
 @Data
 public class Message {
@@ -14,6 +16,4 @@ public class Message {
         this.message = message;
     }
 }
-public enum MessageType {
-    SERVER, CLIENT
-}
+
