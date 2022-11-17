@@ -11,10 +11,26 @@
 
 ## server rendering command
 
+__windows)__
+
 `...\server)` gradlew clean build
 
 `...\server)` cd build/libs
 
 `...\server\build\libs)` java -jar server-0.0.1-SNAPSHOT.war
 
+__linux/macOS)__
+
+`...\server)` ./gradlew clean build
+
+`...\server)` cd build/libs
+
+`...\server\build\libs)` java -jar ./server-0.0.1-SNAPSHOT.war
+
+
 __url__: http://localhost:8080/index.html
+
+## 참고사이트
+socket 설정:
+
+https://medium.com/folksdev/spring-boot-netty-socket-io-example-3f21fcc1147d
