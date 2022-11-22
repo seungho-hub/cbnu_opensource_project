@@ -16,7 +16,7 @@
 
 <section class="signin-section" transition:scale>
   <h4 class="logo">
-    <img src="../favicon.png" class="logo-img" /><span class="logo-text"
+    <img src="./favicon.png" class="logo-img" /><span class="logo-text"
       >MoA MoA</span
     >
   </h4>
@@ -30,12 +30,11 @@
 
     <div class="oauth-btns">
       <button class="oauth-btn google">
-        <img src="../images/google.png" alt="" />
+        <img src="./images/google.png" />
         <span>구글 계정으로 로그인</span></button
       >
       <button class="oauth-btn kakao"
-        ><img src="../images/kakao.png" alt="" /><span
-          >카카오 계정으로 로그인</span
+        ><img src="./images/kakao.png" /><span>카카오 계정으로 로그인</span
         ></button
       >
     </div>
