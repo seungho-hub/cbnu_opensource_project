@@ -24,7 +24,7 @@
 </div>
 
 <style lang="scss">
-  $card-width: 80%;
+  $card-width: 100%;
   $card-height: 14em;
   $img-width: 10em;
   #card {
