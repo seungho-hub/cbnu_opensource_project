@@ -17,7 +17,7 @@ public class SupportController{
 
     private final SupportRepository supportRepository;
 
-    @PostMapping("/product")
+    @PostMapping("/create")
     public String supportProduct(SupportDTO support) {
         //1. Dto를 Entity로 변환
         SupportEntity entity = support.toEntity();
