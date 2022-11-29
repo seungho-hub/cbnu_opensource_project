@@ -26,4 +26,10 @@ public class UserEntity {
     @Column(length = 200,   nullable = false)
     private String billingkey;
 
+    /* user_name과 user_hp 받아서 DB에 저장 */
+    public UserEntity(String user_name, String user_hp) {
+        this.user_name = user_name;
+        this.user_hp = user_hp;
+    }
+
 }

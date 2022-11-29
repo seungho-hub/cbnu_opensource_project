@@ -22,46 +22,29 @@
 </head>
 
 <body>
-    {{>layouts/header}}
-    <form class="container" action="/project/create" method="post">
+    <form class="container" action="/support/product" method="post">
         <div class="mb-3">
-            <label class="form-label">상품이름</label>
+            <label class="form-label">supporter_id</label>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" name="supporter_id">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">product_name</label>
             <!-- 입력값: title -->
             <input class="form-control" rows="1" name="product_name">
         </div>
-
         <div class="mb-3">
-            <label class="form-label">상품url</label>
-            <!-- 입력값: content -->
-            <textarea class="form-control" rows="1" name="product_url"></textarea>
+            <label class="form-label">product_id</label>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" name="product_id">
         </div>
-
         <div class="mb-3">
             <label class="form-label">price</label>
-            <!-- 입력값: content -->
-            <textarea class="form-control" rows="1" name="price"></textarea>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">receiver_name</label>
-            <!-- 입력값: content -->
-            <textarea class="form-control" rows="1" name="receiver_name"></textarea>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">receiver_hp</label>
-            <!-- 입력값: content -->
-            <textarea class="form-control" rows="1" name="receiver_hp"></textarea>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">address</label>
-            <!-- 입력값: content -->
-            <textarea class="form-control" rows="1" name="addr"></textarea>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" name="price">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    {{>layouts/footer}}
 </body>
 
 
