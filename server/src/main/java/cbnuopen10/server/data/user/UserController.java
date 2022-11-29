@@ -1,9 +1,7 @@
-package cbnuopen10.server.controller;
+package cbnuopen10.server.data.user;
 
 import java.util.List;
 
-import cbnuopen10.server.entity.UserEntity;
-import cbnuopen10.server.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package cbnuopen10.server.entity;
+package cbnuopen10.server.data.project;
 
 import lombok.*;
 

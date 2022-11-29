@@ -1,12 +1,5 @@
-package cbnuopen10.server.controller;
+package cbnuopen10.server.data.support;
 
-import java.util.List;
-
-import cbnuopen10.server.dto.ProjectDTO;
-import cbnuopen10.server.dto.SupportDTO;
-import cbnuopen10.server.entity.ProjectEntity;
-import cbnuopen10.server.entity.SupportEntity;
-import cbnuopen10.server.repository.SupportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,4 @@
-package cbnuopen10.server.dto;
-
-import cbnuopen10.server.entity.SupportEntity;
+package cbnuopen10.server.data.support;
 
 public class SupportDTO {
 

@@ -1,10 +1,8 @@
-package cbnuopen10.server.entity;
+package cbnuopen10.server.data.support;
 
 import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.time.LocalDate;
 
 @ToString //클래스 정보 출력해주는 Annotation
 @Getter

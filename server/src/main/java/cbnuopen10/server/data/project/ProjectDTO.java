@@ -1,6 +1,4 @@
-package cbnuopen10.server.dto;
-
-import cbnuopen10.server.entity.ProjectEntity;
+package cbnuopen10.server.data.project;
 
 import java.sql.Date;
 
