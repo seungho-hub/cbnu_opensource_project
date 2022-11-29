@@ -46,11 +46,11 @@ public class ProjectEntity {
     @Column(length = 200, nullable = false)
     private String addr;
 
-    public ProjectEntity(String product_name, String product_url, int price, String receiver_name, String receiver_hp, String addr){
+    public ProjectEntity(String product_name, String product_url, int price, Date end_date ,String receiver_name, String receiver_hp, String addr){
 //        this.id = id;
         this.user_id = -1;
         this.start_date = Date.valueOf(LocalDate.now());
-        this.end_date = Date.valueOf(LocalDate.now());
+        this.end_date = end_date;
         this.product_name = product_name;
         this.product_url = product_url;
         this.price = price;
@@ -65,6 +65,7 @@ public class ProjectEntity {
                 "product_name='" + product_name + '\'' +
                 ", product_url='" + product_url + '\'' +
                 ", price='" + price + '\'' +
+                ", end_date='" + end_date + '\'' +
                 ", reciever_name='" + receiver_name + '\'' +
                 ", reciever_hp='" + receiver_hp + '\'' +
                 ", addr='" + addr + '\'' +
