@@ -9,7 +9,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry){
         registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/views/public/");
+                .addResourceLocations("classpath:/views/public/", "classpath:/views/testHTML/");
 
     }
 }
