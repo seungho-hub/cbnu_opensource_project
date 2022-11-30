@@ -20,14 +20,16 @@
     --link: #5fcfc6;
 }
 
-input {
+input,
+textarea {
     border-radius: 1em;
     padding: 0.5em 1em;
     background: none;
     border: none;
 }
 
-input:focus {
+input,
+textarea:focus {
     outline: none;
 }
 
