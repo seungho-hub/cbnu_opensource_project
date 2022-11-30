@@ -12,6 +12,7 @@ public class ProjectController {
 
     private final ProjectRepository projectRepository;
 
+    /* CREATE */
     @PostMapping("/create")
     public String createProject(ProjectDTO project) {
         System.out.println(project.toString());
@@ -27,21 +28,12 @@ public class ProjectController {
         return "";
     }
 
-    //CREATE TEST
-    @PostMapping("v1/Rtest")
-    public ProjectEntity signUp() {
-        final ProjectEntity product = ProjectEntity.builder()
-                .product_name("product_name test")
-                .product_url("url test")
-                .price(10000000)
-                .user_id(0)
-                .start_date(Date.valueOf("2022-11-22"))
-                .end_date(Date.valueOf("2023-11-22"))
-                .receiver_name("HongGilDong")
-                .receiver_hp("010-1234-5678")
-                .addr("addr test")
-                .build();
-        return projectRepository.save(product);
+    /*Open project create page*/
+    @GetMapping("/detail")
+    public String showDatail(ProjectDTO project) {
+
+
+        return "/showdetail";
     }
 
     /*Open project create page*/
