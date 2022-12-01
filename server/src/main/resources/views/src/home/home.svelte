@@ -15,9 +15,8 @@
 
 <style lang="scss">
   section#home {
-    margin: 1em;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: grid;
     grid-template-areas: "topbar topbar" "content sidebar";
     grid-template-rows: 4em auto;

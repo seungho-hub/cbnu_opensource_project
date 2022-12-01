@@ -46,6 +46,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: black;
         img {
           width: $card-height;
           object-fit: cover;

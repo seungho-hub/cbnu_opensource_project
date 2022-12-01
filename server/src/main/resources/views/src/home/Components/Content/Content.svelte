@@ -3,8 +3,7 @@
   import Products from "./Products.svelte";
   let isSearching = false;
 
-  import ProductModal from "../Modal/ProductModal.svelte";
-
+  import ProductFormModal from "../Modal/ProductFormModal.svelte";
   let showProductFormModal = false;
 </script>
 
@@ -27,14 +26,14 @@
   </div>
 
   {#if showProductFormModal}
-    <ProductModal bind:showProductFormModal />
+    <ProductFormModal bind:showProductFormModal />
   {/if}
 </section>
 
 <style lang="scss">
   section#content {
     grid-area: content;
-    padding: 1em;
+    padding: 0 1em;
     display: grid;
     grid-template-areas: "search-box" "funcs" "products";
     grid-template-rows: auto auto auto;
