@@ -1,28 +1,70 @@
 <script>
+  import { addProduct } from "../../../stores/products";
+  import { scale } from "svelte/transition";
+  import { v4 } from "uuid";
+
   export let showProductFormModal;
   let imgPreview, fileInput;
 
-  const fileSelected = (e) => {
-    let img = e.target.files[0];
+  let name;
+  let price;
+  let link;
+  let description;
 
-    let reader = new FileReader();
-    reader.readAsDataURL(img);
-    reader.onload = (e) => {
-      imgPreview = e.target.result;
-    };
+  const registerProduct = () => {
+    getDataURLOfImage()
+      .then((dataURL) => {
+        const newProduct = {
+          code: "#" + v4(),
+          img: dataURL,
+          name,
+          price,
+          link,
+          description,
+        };
+
+        addProduct(newProduct);
+      })
+      .catch(() => {});
   };
-  import { scale } from "svelte/transition";
+
+  function getDataURLOfImage() {
+    return new Promise((resolve, reject) => {
+      let img = fileInput.files[0];
+
+      let reader = new FileReader();
+      reader.readAsDataURL(img);
+
+      reader.onloadend = (e) => {
+        resolve(e.target.result);
+      };
+
+      reader.onerror = (err) => {
+        reject(err);
+      };
+    });
+  }
+
+  const fileSelected = (e) => {
+    console.log(getDataURLOfImage());
+    getDataURLOfImage()
+      .then((dataURL) => {
+        imgPreview = dataURL;
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
 </script>
 
 <div
   class="modal-bg"
   on:click|self={() => {
     showProductFormModal = !showProductFormModal;
-    console.log(showProductFormModal);
   }}
 >
   <modal id="product-create-modal" transition:scale>
-    <form class="product-form">
+    <form class="product-form" on:submit|preventDefault={registerProduct}>
       <div class="top">
         <div class="image-preview">
           {#if imgPreview}
@@ -39,15 +81,14 @@
           <input
             class="name"
             type="text"
-            name=""
-            id=""
             placeholder="상품 이름"
+            bind:value={name}
           />
           <div class="price-wrapper">
-            <input class="price" wtype="number" value="0" />
+            <input class="price" wtype="number" bind:value={price} />
             <span>원</span>
           </div>
-          <input type="text" placeholder="url" />
+          <input type="text" placeholder="url" bind:value={link} />
           <input
             type="file"
             bind:this={fileInput}
@@ -64,6 +105,7 @@
           id=""
           cols="30"
           rows="10"
+          bind:value={description}
         />
         <button>등록하기</button>
       </div>
@@ -102,10 +144,12 @@
         grid-area: top;
         display: grid;
         grid-template-areas: "image  name-price";
+        grid-template-rows: $product-image-width;
         gap: 1em;
         .image-preview {
           grid-area: image;
           width: $product-image-width;
+          height: $product-image-width;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -113,6 +157,7 @@
           background-color: black;
           img {
             width: $product-image-width;
+            object-fit: cover;
             &:hover {
               cursor: pointer;
             }
