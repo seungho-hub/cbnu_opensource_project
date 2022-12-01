@@ -3,6 +3,8 @@ package cbnuopen10.server.data.project;
 import java.sql.Date;
 
 public class ProjectDTO {
+    private long id;
+    private long user_id;
     private String product_name;
     private String product_url;
     private int price;
@@ -33,8 +35,8 @@ public class ProjectDTO {
                 '}';
     }
 
-    public ProjectEntity toEntity() {
-        return new ProjectEntity(product_name, product_url, price, end_date, receiver_name, receiver_hp, addr);
-    }
+//    public ProjectEntity toEntity() {
+//        return new ProjectEntity(product_name, product_url, price, end_date, receiver_name, receiver_hp, addr);
+//    }
 
 }

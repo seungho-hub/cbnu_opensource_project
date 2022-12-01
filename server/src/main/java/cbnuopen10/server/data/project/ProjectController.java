@@ -1,40 +1,29 @@
 package cbnuopen10.server.data.project;
 
-import java.sql.Date;
+import java.util.List;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // JSON 형태 결과값을 반환해줌 (@ResponseBody가 필요없음)
 @RequiredArgsConstructor // final 객체를 Constructor Injection 해줌. (Autowired 역할)
-@RequestMapping("project")
+@RequestMapping("")
 public class ProjectController {
-
-    private final ProjectRepository projectRepository;
+    private final ProjectService projectService;
 
     /* CREATE */
-    @PostMapping("/create")
-    public String createProject(ProjectDTO project) {
-        System.out.println(project.toString());
-
-        //1. Dto를 Entity로 변환
-        ProjectEntity entity = project.toEntity();
-        System.out.println(entity.toString());
-
-        //2. Repository에게 Entity를 DB에 저장하게 함.
-        ProjectEntity saved = projectRepository.save(entity);
-        System.out.println(saved.toString());
-
-        return "";
-    }
+//    @PostMapping("/create")
+//    public String createProject(ProjectDTO project) {
+//
+//
+//        return "";
+//    }
 
     /*Open project create page*/
-    @GetMapping("/detail")
-    public String showDatail(ProjectDTO project) {
-
-
-        return "/showdetail";
-    }
+//    @GetMapping("/product/detail")
+//    public List<ProjectEntity> showDetail(Long id) {
+//        return projectService.getUserProject(id);
+//    }
 
     /*Open project create page*/
 //    @GetMapping("/project/start")

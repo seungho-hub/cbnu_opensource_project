@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cbnuopen10.server.ServerApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-23T06:12:29" hostname="LAPTOP-DG" time="0.013">
+<testsuite name="cbnuopen10.server.ServerApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-01T11:30:41" hostname="LAPTOP-DG" time="0.016">
   <properties/>
-  <testcase name="findAllmember()" classname="cbnuopen10.server.ServerApplicationTests" time="0.013"/>
+  <testcase name="findAllmember()" classname="cbnuopen10.server.ServerApplicationTests" time="0.016"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

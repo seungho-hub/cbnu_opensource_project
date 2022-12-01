@@ -17,7 +17,7 @@ public class ProjectEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(length = 20, nullable = false)
     private String product_name;
@@ -29,7 +29,7 @@ public class ProjectEntity {
     private int price;
 
     @Column(nullable = false)
-    private int user_id;
+    private long user_id;
 
     @Column(nullable = false)
     private Date start_date;

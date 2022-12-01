@@ -20,10 +20,8 @@
 <style lang="scss">
   #search-box {
     grid-area: search-box;
-    width: 20em;
     height: 2.5em;
     padding: 0.2em 1em;
-    margin-top: 2em;
     background-color: var(--bg-more-light-color);
     display: flex;
     align-items: center;

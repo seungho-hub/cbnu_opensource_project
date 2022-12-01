@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>Svelte app</title>
+
+    <link rel='icon' type='image/png' href='/favicon.png'>
+    <link rel='stylesheet' href='/global.css'>
+    <link rel='stylesheet' href='/build/bundle.css'>
+
+    <script defer src='/build/bundle.js'></script>
+
+    <style>
+        body{
+            --font-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="container" action="/project/create" method="post">
+        <div class="mb-3">
+            <label class="form-label">product_name</label>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" name="product_name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">product_url</label>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" name="product_url">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">price</label>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" name="price">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">end_date</label>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" type="date" name="end_date">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">receiver_name</label>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" name="receiver_name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">receiver_hp</label>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" name="receiver_hp">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">addr</label>
+            <!-- 입력값: title -->
+            <input class="form-control" rows="1" name="addr">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+
+
+</html>
