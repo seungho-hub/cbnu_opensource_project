@@ -10,7 +10,7 @@
   let showProductDetailModal = false;
 
   function openProductDetailModal(code) {
-    //detailTarget = findPorduct(code);
+    detailTarget = code;
     showProductDetailModal = true;
   }
 </script>
