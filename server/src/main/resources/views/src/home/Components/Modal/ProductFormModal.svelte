@@ -24,8 +24,11 @@
         };
 
         addProduct(newProduct);
+        showProductFormModal = false;
       })
-      .catch(() => {});
+      .catch(() => {
+        alert("상품을 등록하는 도중 문제가 발생했습니다.");
+      });
   };
 
   function getDataURLOfImage() {
