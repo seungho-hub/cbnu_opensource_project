@@ -6,12 +6,14 @@
 
   import ProductDetailModal from "../Modal/ProductDetailModal.svelte";
 
-  let detailTarget;
-  let showProductDetailModal = false;
+  let bindVar = {
+    targetProduct: undefined,
+    showProductDetailModal: false,
+  };
 
-  function openProductDetailModal(code) {
-    //detailTarget = findPorduct(code);
-    showProductDetailModal = true;
+  function openProductDetailModal(product) {
+    bindVar.targetProduct = product;
+    bindVar.showProductDetailModal = true;
   }
 </script>
 
@@ -20,15 +22,15 @@
 {:else}
   <ul class="products">
     {#each $products.reverse() as product}
-      <li transition:slide on:click={openProductDetailModal(product.code)}>
+      <li transition:slide on:click={openProductDetailModal(product)}>
         <ProductCard {product} />
       </li>
     {/each}
   </ul>
 {/if}
 
-{#if showProductDetailModal}
-  <ProductDetailModal bind:showProductDetailModal bind:detailTarget />
+{#if bindVar.showProductDetailModal}
+  <ProductDetailModal bind:bindVar />
 {/if}
 
 <style lang="scss">
