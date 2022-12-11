@@ -1,8 +1,25 @@
 <script>
+  import { products } from "../../../stores/products";
+
   let searchText;
   export let isSearching;
-  function search() {
+  function search(searchText) {
     isSearching = true;
+    console.log(searchText);
+
+    products.update((items) => {
+      let results = [];
+
+      items.find((item) => {
+        if (item.code.includes(searchText)) {
+          console.log(item);
+          results.push(item);
+        }
+      });
+
+      return results;
+    });
+
     setTimeout(() => {
       isSearching = false;
       console.log(isSearching);
@@ -14,7 +31,13 @@
 
 <div id="search-box">
   <i class="fa-solid fa-magnifying-glass" />
-  <input type="text" bind:value={searchText} on:input={search} />
+  <input
+    type="text"
+    bind:value={searchText}
+    on:input={() => {
+      search(searchText);
+    }}
+  />
 </div>
 
 <style lang="scss">
