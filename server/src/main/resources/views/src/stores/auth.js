@@ -1,36 +1,32 @@
 import { writable } from "svelte/store";
-import socket from "../socket/socket";
-import { nativgate } from "svelte-routing";
 
 const signin = (email, password, cb) => {
-    //send email, password to socket server
-    const res = {
-        status: 200,
-        message: "찾을 수 없는 계정입니다.",
-    };
-
-    //signined successfully
-    if (true) {
-        auth.update((prevAuth) => ({
-            ...prevAuth,
-            user: {
-                username: "seungho-hub",
-                email: "kmc54320@gmail.com",
-            },
-        }));
-        cb(null);
-    } else {
-        cb("로그인에 실패했습니다.");
-    }
+  //signined successfully
+  auth.set({
+    signin,
+    signout,
+    user: {
+      username: "seungho-hub",
+      email: "kmc54320@gmail.com",
+      pfp: "https://i.ibb.co/9y7YWJG/40098653-289712878496176-911631268414750720-n.jpg",
+      count_of_registered_product: 1,
+      count_of_moadedProduct: 2,
+      payment: {
+        image: "https://i.postimg.cc/tRZdBjD6/card.png",
+        card_number: "5412-75**-****-****",
+      },
+    },
+  });
+  cb(null);
 };
 
 const signout = (cb) => {
-    auth.update((prevAuth) => ({
-        ...prevAuth,
-        user: null,
-    }));
+  auth.update((prevAuth) => ({
+    ...prevAuth,
+    user: null,
+  }));
 };
 export const auth = writable({
-    signin,
-    signout,
+  signin,
+  signout,
 });

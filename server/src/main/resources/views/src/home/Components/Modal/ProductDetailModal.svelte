@@ -1,68 +1,104 @@
 <script>
   import { scale } from "svelte/transition";
-  export let showProductDetailModal;
+  import { auth } from "../../../stores/auth";
+  import { products } from "../../../stores/products";
+  let user;
+  auth.subscribe((auth) => {
+    user = auth.user;
+  });
+
+  export let bindVar;
+
+  function closeProduct(code) {
+    products.update((items) => {
+      items = items.filter(function (item) {
+        return item.code !== code;
+      });
+
+      bindVar.showProductDetailModal = false;
+      return items;
+    });
+  }
+
+  function cancleParticipant(code) {
+    products.update((items) => {
+      let item = items.find(function (item) {
+        return item.code == code;
+      });
+
+      item.participants = item.participants.filter(
+        (participant) => participant != user.username
+      );
+    });
+  }
 </script>
 
 <div
   class="modal-bg"
   on:click|self={() => {
-    showProductDetailModal = !showProductDetailModal;
+    bindVar.showProductDetailModal = !bindVar.showProductDetailModal;
   }}
 >
   <modal id="product-detail-modal" transition:scale>
     <div class="top">
       <div class="img-wrapper">
-        <img
-          src="https://media.gucci.com/style/HEXEAF2DC_Center_0_0_2400x2400/1649338227/646953_XJD7O_9095_001_100_0000_Light--Gucci-Firenze-1921.jpg"
-          alt=""
-        />
+        <img src={bindVar.targetProduct.img} alt="" />
       </div>
       <div class="info">
         <div class="label-code">
           <div class="label">
-            <span>nike hoodie </span>
+            <p>{bindVar.targetProduct.name}</p>
           </div>
           <div class="code">
-            <span>#64442</span>
+            <p>{bindVar.targetProduct.code}</p>
           </div>
         </div>
 
         <div class="link">
-          <a
-            href="https://www.stussy.co.kr/products/basic-stussy-hood-5?gclid=CjwKCAiAhKycBhAQEiwAgf19egM8xjWEBoQxB8P0hVQJLvJSYPpPGvwSSbW-_q7ATNj1wImOR9MqrxoCEegQAvD_BwE"
-            >https://www.stussy.co.kr/products/basic-stussy-hood-5?gclid=CjwKCAiAhKycBhAQEiwAgf19egM8xjWEBoQxB8P0hVQJLvJSYPpPGvwSSbW-_q7ATNj1wImOR9MqrxoCEegQAvD_BwE</a
-          >
+          <a href={bindVar.targetProduct.url}>상품 링크</a>
         </div>
         <div class="price">
-          <span>130,000 원</span>
+          <span class="text">(1인)</span>
+          &nbsp
+          <span class="divided-price"
+            >{bindVar.targetProduct.divided_price}</span
+          >
+          &nbsp
+          <p class="original-price">{bindVar.targetProduct.price}원</p>
         </div>
       </div>
     </div>
 
     <div class="mid">
       <div class="description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus ac
-        metus rutrum mollis. Mauris in est ut risus egestas congue. Donec et
-        lectus non sapien malesuada ornare eget eget mauris.
+        {bindVar.targetProduct.description}
       </div>
       <div class="participants">
-        <div class="participant">
-          <span>kangseungho</span>
-        </div>
-
-        <div class="participant">
-          <span>seo</span>
-        </div>
-        <div class="participant">
-          <span>jk </span>
-        </div>
-        <div class="participant">
-          <span>undeducated kid </span>
-        </div>
-        <div class="participant">
-          <span>ho-hub</span>
-        </div>
+        {#each bindVar.targetProduct.participants as participant}
+          <div class="participant">
+            <span>{participant}</span>
+          </div>
+        {/each}
       </div>
+    </div>
+
+    <div class="buttons">
+      {#if bindVar.targetProduct.participants.includes(user.username)}
+        <button
+          class="cancle"
+          on:click={cancleParticipant(bindVar.targetProduct.code)}
+          >참여 취소</button
+        >
+      {:else if bindVar.targetProduct.register == user.username}
+        <button
+          class="close"
+          on:click={() => {
+            closeProduct(bindVar.targetProduct.code);
+          }}>마감하기</button
+        >
+      {:else}
+        <button class="participant">참여하기</button>
+      {/if}
     </div>
   </modal>
 </div>
@@ -76,6 +112,11 @@
     width: 40%;
     background-color: var(--bg-more-light-color);
     padding: 2em;
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> develop
 
     .top {
       display: grid;
@@ -99,13 +140,21 @@
           grid-area: label-code;
           .label {
             display: inline;
+<<<<<<< HEAD
             span {
+=======
+            p {
+>>>>>>> develop
               font-size: 1.6em;
             }
           }
           .code {
             display: inline;
+<<<<<<< HEAD
             span {
+=======
+            p {
+>>>>>>> develop
               font-size: 1em;
               color: var(--sig);
             }
@@ -113,6 +162,10 @@
         }
 
         .link {
+<<<<<<< HEAD
+=======
+          margin-top: 1em;
+>>>>>>> develop
           width: $product-image-width;
           grid-area: link;
           text-overflow: ellipsis;
@@ -123,6 +176,16 @@
           display: flex;
           align-items: flex-end;
           justify-content: end;
+<<<<<<< HEAD
+=======
+          .divided_price {
+            color: var(--font-color);
+          }
+          .original-price {
+            text-align: end;
+            color: rgba(121, 121, 121, 0.5);
+          }
+>>>>>>> develop
         }
       }
     }
@@ -149,5 +212,31 @@
         }
       }
     }
+<<<<<<< HEAD
+=======
+
+    .buttons {
+      margin-top: 4em;
+      button {
+        width: 100%;
+        border-radius: 0;
+      }
+      .cancle {
+        background-color: #f85d5d;
+        color: var(--font-dark-color);
+      }
+
+      .participant {
+        background-color: var(--sig);
+        color: var(--font-dark-color);
+      }
+
+      .close {
+        background-color: #f57338;
+        color: var(--font-dark-color);
+      }
+    }
+>>>>>>> Stashed changes
+>>>>>>> develop
   }
 </style>

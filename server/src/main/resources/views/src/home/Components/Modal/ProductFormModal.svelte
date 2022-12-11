@@ -16,11 +16,14 @@
       .then((dataURL) => {
         const newProduct = {
           code: "#" + v4(),
+          register: "seungho-hub",
           img: dataURL,
           name,
           price,
+          divided_price: "1,050,000",
           link,
           description,
+          participants: ["seungho-hub"],
         };
 
         addProduct(newProduct);

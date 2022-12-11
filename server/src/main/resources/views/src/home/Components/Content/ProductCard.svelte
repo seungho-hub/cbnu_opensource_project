@@ -1,5 +1,11 @@
 <script>
+  import { auth } from "../../../stores/auth";
   export let product;
+
+  let user;
+  auth.subscribe((auth) => {
+    user = auth.user;
+  });
 </script>
 
 <div id="card">
@@ -9,18 +15,39 @@
     </div>
   </div>
   <div class="right">
-    <p class="name-code">
-      <span class="name">{product.name}</span>
-      &nbsp
-      <span class="code">{product.code}</span>
-    </p>
+    <div class="name-code">
+      <p class="name">
+        {product.name}
+        {#if product.participants.includes(user.username)}<span
+            class="participainting">(참가중)</span
+          >{/if}
+      </p>
+      <p class="code">{product.code}</p>
+    </div>
     <p class="description">{product.description}</p>
     <div class="participants">
-      <div class="participant">seungho</div>
-      <div class="participant">kmc</div>
+      {#each product.participants as participant}
+        <div class="participant">
+          {participant}
+        </div>
+      {/each}
     </div>
-    <p class="price">{product.price}원</p>
+    <div class="price">
+      <span class="text">(1인)</span>
+      &nbsp
+      <span class="divided-price"> {product.divided_price} </span>
+      &nbsp
+      <span class="original-price">{product.price}원</span>
+    </div>
   </div>
+
+  <!-- <div class="buttons">
+    {#if product.participants.includes(user.username)}
+      <button>참여취소</button>
+    {:else}
+      <button>참여하기</button>
+    {/if}
+  </div> -->
 </div>
 
 <style lang="scss">
@@ -54,6 +81,7 @@
       }
     }
     .right {
+      width: 100%;
       padding: 1em 1em;
       display: flex;
       flex-direction: column;
@@ -64,6 +92,10 @@
         .name {
           font-size: 1.2em;
           font-weight: bold;
+
+          .participainting {
+            color: #f85d5d;
+          }
         }
         .code {
           font-size: 1em;
@@ -90,8 +122,15 @@
         }
       }
       .price {
-        font-size: 1.1em;
-        text-align: end;
+        display: flex;
+        justify-content: end;
+        .divided_price {
+          color: var(--font-color);
+        }
+        .original-price {
+          text-align: end;
+          color: rgba(121, 121, 121, 0.5);
+        }
       }
     }
   }

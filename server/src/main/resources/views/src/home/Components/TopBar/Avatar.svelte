@@ -1,17 +1,23 @@
 <script>
   import { auth } from "../../../stores/auth";
+  export let showUserDetailModal;
+  let user;
+  auth.subscribe((auth) => {
+    user = auth.user;
+  });
 </script>
 
-<div class="avatar">
+<div
+  class="avatar"
+  on:click={() => {
+    showUserDetailModal = true;
+  }}
+>
   <div class="profile-image-wrapper">
-    <img
-      src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
-      class="profile-image"
-      alt=""
-    />
+    <img src={user.pfp} class="profile-image" alt="" />
   </div>
   <div class="username-wrapper">
-    <span> {$auth.username} </span>
+    <span> {user.username} </span>
   </div>
 </div>
 
@@ -23,6 +29,9 @@
     padding: 1em;
     display: flex;
     align-items: center;
+    &:hover {
+      cursor: pointer;
+    }
     .profile-image-wrapper {
       width: 2em;
       height: 2em;
