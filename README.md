@@ -9,5 +9,27 @@ Share links or codes with your friends to collect money and buy expensive items
 
 ## Authors :two_men_holding_hands:
 
-- :family_man_boy: [seungho-hub](https://github.com/seungho-hub)
+### Frontend
+- :family_man_boy: [seungho-hub](https://github.com/seungho-hub) -  2019038056 강승호
+
+### Backend
 - :family_man_boy: [2019038077 김동규](https://github.com/Dongu-K)
+
+## Run svelte Application
+  in views directory
+  
+  #### run application (development mode)
+    
+    //development mode
+    yarn run dev
+    
+    //production mode
+    yarn run start
+    
+  #### build application
+    
+    yarn run build
+    
+
+    
+    
